@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link href="/normalize.css" rel="stylesheet">
+  <title>Yan's Site</title>
+  <style>
+    header {
+      text-align: right;
+          }
+    body {
+      text-align: center;
+      background: url('file:///C:/Users/Yan/Documents/yansite/images/happy-place3.jpg');
+      background-size: 1400px 450px;
+      background-repeat:no-repeat;
+      color: #996633;
+      background-color: #1D1E2E;
+    }
+    a:hover
+      {
+      background-color:brown;
+      }
+    a:active  {
+      color:gray;
+    }
+    a {
+      font-size: 50px;
+      color: #996633;
+      }
+      .about a
+      {font-size: 26px;
+        background-color : transparent;
+      }
+      .contact a
+      {font-size: 20px;
+        background-color : transparent;
+        color: black;
+      }
+    h1 {
+      font:60px arial,sans-serif; 
+      text-align: top;
+    }
+    img {
+      margin: 10px 0px 0px 0px;
+      border: 1px solid white;
+      border-radius: 0px;
+    }
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0);
+    }
+    li {
+      padding: 30px 10px 0px 10px;
+    }
+    .about {
+      margin: 10px 300px 10px 300px;
+      font-size: 20px;
+    }
+    button {
+      margin-bottom: 10px;
+    }
+p {
+  text-align: left;
+}
+
+small {
+  opacity: 0;
+  font-size: 20px;
+}
+.show-description small {
+  opacity: 1;
+  }
+  div {
+    a (font-size: 10px;}
+  }
+@media (max-width: 640px) {
+      h1 {
+        font-size: 16px;
+        padding: 5px;
+      }
+      p {
+        font-size: 10px;
+      }
+      a {
+        font-size: 12px;
+      }
+      li {
+        padding: 5px;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Yan's First Site</h1>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#email">Contact Info</a></li>
+      <li><a target="_blank" href="https://www.facebook.com/yan.gurevich.7">Facebook</a></li>
+</ul>
+  </header>
+  <div class="about">
+    <h2><a id="about">About Me</a></h2>
+    <img src='file:///C:/Users/Yan/Documents/yansite/images/yan.png'>
+    <p>My name is Yan Gurevich and I am an aspiring web developer.  I have worked on a website for several years now, but have not had a chance to learn what goes on behind the scenes.
+
+    <p>Learning the technical skills taught at GA would greatly help me in my current position and in seeing though other projects down the road.  This site is an example of some very basic concepts I have learned through the dash tutorials.</p>
+  </div>
+
+  <div class="contact">
+    <button><a id="email">Contact Info:</a></button>
+    <br>
+    <small>Phone: 847-508-0135<br> Email: ygurev@gmail.com</small>
+  </div>
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+});
+</script>
+</body>
