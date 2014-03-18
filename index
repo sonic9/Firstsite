@@ -25,6 +25,7 @@
     }
     a {
       font-size: 50px;
+      font: arial;
       color: #996633;
       }
       .about a
@@ -61,6 +62,10 @@
     }
 p {
   text-align: left;
+  font-family:Arial,Helvetica,sans-serif;
+}
+h2 {
+      font-family:Arial,Helvetica,sans-serif;
 }
 
 small {
@@ -89,6 +94,21 @@ small {
         display: block;
       }
     }
+
+    .slider {
+  margin: 10px 0;
+  width: 580px; /* Update to your slider width */
+  height: 250px; /* Update to your slider height */
+  position: relative;
+  overflow: hidden;
+}
+
+.slider li {
+  display: none;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+}
   </style>
 </head>
 <body>
@@ -113,9 +133,51 @@ small {
     <br>
     <small>Phone: 847-508-0135<br> Email: ygurev@gmail.com</small>
   </div>
+
+<h2> Some of my Favorite Hikes!</h2>
+<ul class="slider">
+  <li><img src='file:///C:/Users/Yan/Documents/yansite/images/car-1.jpg'></li>
+  <li><img src='file:///C:/Users/Yan/Documents/yansite/images/car-2.jpg'></li>
+  <li><img src='file:///C:/Users/Yan/Documents/yansite/images/car-3.jpg'></li>
+</ul>
+
+
 <script>
   $('div').on('click', function() {
       $(this).toggleClass('show-description');
+});
+
+$(document).ready(function() {
+  var $slider = $('.slider'); // class or id of carousel slider
+  var $slide = 'li'; // could also use 'img' if you're not using a ul
+  var $transition_time = 1000; // 1 second
+  var $time_between_slides = 4000; // 4 seconds
+
+  function slides(){
+    return $slider.find($slide);
+  }
+
+  slides().fadeOut();
+
+  // set active classes
+  slides().first().addClass('active');
+  slides().first().fadeIn($transition_time);
+
+  // auto scroll 
+  $interval = setInterval(
+    function(){
+      var $i = $slider.find($slide + '.active').index();
+
+      slides().eq($i).removeClass('active');
+      slides().eq($i).fadeOut($transition_time);
+
+      if (slides().length == $i + 1) $i = -1; // loop to start
+
+      slides().eq($i + 1).fadeIn($transition_time);
+      slides().eq($i + 1).addClass('active');
+    }
+    , $transition_time +  $time_between_slides 
+  );
 });
 </script>
 </body>
